@@ -18,6 +18,7 @@ namespace DAL.Impl
         {
             _context.Providers.Add(provider);
             await _context.SaveChangesAsync();
+            //kakaa
         }
     }
 }
