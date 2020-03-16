@@ -13,5 +13,14 @@ namespace DTO
         public double TotalPrice { get; set; }
         public bool Finalizado { get; set; }
         public ICollection<ItemsSaleDTO> ItemsSales { get; set; }
+
+        public void CalculatePrice()
+        {
+            foreach (var item in ItemsSales)
+            {
+                this.TotalPrice += item.Price;
+            }
+        }
+
     }
 }

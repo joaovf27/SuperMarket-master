@@ -10,11 +10,12 @@ namespace DAL
 {
     public class MarketContext : DbContext
     {
-        public MarketContext()
+        public MarketContext(DbContextOptions options) : base(options)
         {
 
         }
-        public MarketContext(DbContextOptions options) : base(options)
+
+        public MarketContext()
         {
 
         }
@@ -32,6 +33,7 @@ namespace DAL
         public DbSet<ProductDTO> Products { get; set; }
         public DbSet<ProviderDTO> Providers { get; set; }
         public DbSet<SaleDTO> Sales { get; set; }
+        public DbSet<ItemsSaleDTO> ItemSales { get; set; }
         public DbSet<UserDTO> Users { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
