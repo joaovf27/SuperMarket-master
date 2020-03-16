@@ -1,0 +1,93 @@
+﻿@model SuperMarketPresentationLayer.Models.ProductInsertViewModel
+
+@{
+    ViewData["Title"] = "Insert";
+}
+
+<style type="text/css">
+    .select2-selection__rendered {
+    line-height: 31px !important;
+}
+    .select2-container .select2-selection--single {
+        height: 35px !important;
+    }
+    .select2-selection__arrow {
+        height: 34px !important;
+    }
+</style>
+
+<h1>Insert</h1>
+
+
+<h4>ProductInsertViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Insert">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Brand" class="control-label"></label>
+                <select class="js-example-basic-single form-control" style="height:26.250px" name="state">
+                    @foreach (var item in ViewBag.Brands)
+                    {
+                        <option value="@item.ID" style="height: 33px;">@item.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="Brand" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Provider" class="control-label"></label>
+                <select class="js-example-basic-single form-control" name="state">
+                    @foreach (var item in ViewBag.Provider)
+                    {
+                        <option value="@item.ID" style="height: 33px;">@item.FantasyName</option>
+                    }
+                </select>
+                <span asp-validation-for="Provider" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Category" class="control-label"></label>
+                <select class="js-example-basic-single form-control" name="state">
+                    @foreach (var item in ViewBag.Category)
+                    {
+                        <option value="@item.ID" style="height: 33px;">@item.Name</option>
+                    }
+
+                </select>
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control"  type="number" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script>
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2({
+             height: 'resolve' // need to override the changed default
+        });
+    });
+</script>
+}

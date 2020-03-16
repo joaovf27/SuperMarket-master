@@ -1,0 +1,56 @@
+﻿@model SuperMarketPresentationLayer.Models.BrandInsertViewModel
+
+@{
+    ViewData["Title"] = "Insert";
+}
+
+<h1>Insert</h1>
+
+<h4>BrandInsertViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Insert">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $("#Create").click(function (e) {
+
+                var sucesso = true;
+                var name = $("#Nome").val();
+
+                if (name == "") { 
+                    $("#erroName").html("O nome deve ser informado");
+                    sucesso = false;
+                }
+                else {
+                    $("#erroName").html("");
+                }
+            });
+        });
+
+    </script>
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

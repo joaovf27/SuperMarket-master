@@ -1,0 +1,43 @@
+﻿@model SuperMarketPresentationLayer.Models.SaleInsertViewModel
+
+@{
+    ViewData["Title"] = "Insert";
+}
+
+<h1>Insert</h1>
+
+<h4>SaleInsertViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Insert">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ClientDTOID" class="control-label"></label>
+                <input asp-for="ClientDTOID" class="form-control" />
+                <span asp-validation-for="ClientDTOID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SaleDate" class="control-label"></label>
+                <input asp-for="SaleDate" class="form-control" type="date" />
+                <span asp-validation-for="SaleDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalPrice" class="control-label"></label>
+                <input asp-for="TotalPrice" class="form-control" />
+                <span asp-validation-for="TotalPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

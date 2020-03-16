@@ -1,0 +1,78 @@
+﻿@model SuperMarketPresentationLayer.Models.EmployeeInsertViewModel
+
+@{
+    ViewData["Title"] = "Insert";
+}
+
+<h1>Insert</h1>
+
+<h4>EmployeeInsertViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Insert">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" style="border-radius:25px; border-color:black;" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" style="border-radius:25px; border-color:black;" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CPF" class="control-label"></label>
+                <input asp-for="CPF" style="border-radius:25px; border-color:black;" class="form-control" />
+                <span asp-validation-for="CPF" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RG" class="control-label"></label>
+                <input asp-for="RG" style="border-radius:25px; border-color:black;" class="form-control"/>
+                <span asp-validation-for="RG" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" style="border-radius:25px; border-color:black;" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateBirth" class="control-label"></label>
+                <input asp-for="DateBirth" style="border-radius:25px; border-color:black;" class="form-control" type="date" />
+                <span asp-validation-for="DateBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" style="border-radius:25px; border-color:black;" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            @{ 
+                string[] function = Enum.GetNames(typeof(DTO.Enums.Function));
+            }
+            <div class="form-group">
+                <label class="control-label">Function</label>
+                <div class="form-group">
+                    <select style="border-radius:25px; border-color:black" class="form-control" name="Function" id="Function">
+                        @for (int i = 0; i < function.Length; i++)
+                        {
+                            <option value="@i">@function[i]</option>
+                        }
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
