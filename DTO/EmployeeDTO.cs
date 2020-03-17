@@ -16,5 +16,6 @@ namespace DTO
         public DateTime DateBirth { get; set; }
         public string Password { get; set; }
         public Function Function { get; set; }
+        public bool IsActive {get;set;}
     }
 }

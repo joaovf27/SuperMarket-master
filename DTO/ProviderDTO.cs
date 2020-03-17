@@ -12,5 +12,6 @@ namespace DTO
         public string CNPJ { get; set; }
         public string Phone { get; set; }
         public virtual ICollection<ProductDTO> Products { get; set; }
+        public bool IsActive {get;set;}
     }
 }

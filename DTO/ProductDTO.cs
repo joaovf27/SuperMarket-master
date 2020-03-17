@@ -14,6 +14,7 @@ namespace DTO
         public int ProviderID { get; set; }
         public virtual ICollection<ProductCategoryDTO> ProductCategory { get; set; }
         public double Price { get; set; }
+        public bool IsActive {get;set;}
 
     }
 }
