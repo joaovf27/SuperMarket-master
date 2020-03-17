@@ -15,10 +15,6 @@ namespace DAL
 
         }
 
-        public MarketContext()
-        {
-
-        }
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
